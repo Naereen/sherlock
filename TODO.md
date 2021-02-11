@@ -1,5 +1,7 @@
 # TODO
 
+- [ ] License ?
+
 ## Clean-up?
 
 - [ ] Pass to modern C, like WTF `// comments` are not allowed?
