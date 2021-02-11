@@ -24,13 +24,21 @@ Sherlock works on text files such as essays, computer source code files, and oth
 There are some files you can download here:
 
 *   [sherlock.c](sherlock.c) - source code for the Sherlock program, in Unix text file format.
-*   [makefile](makefile) - a Unix makefile.
+*   [Makefile](Makefile) - a Unix makefile.
 
 Click on those files and choose "Save As..." from the File menu, or right-click in your browser and choose "Save Link As..." from there.
 
 ## How do I compile it?
 
 If using Unix or Linux, just type "make". If using Windows, consult your compiler's documentation. You simply need to compile the sherlock.c source code file into an executable called sherlock (sherlock.exe for Windows users).
+
+```bash
+$ cd /tmp/
+$ git clone git@github.com:Naereen/sherlock.git
+$ cd sherlock.git
+$ make
+$ make install
+```
 
 ## How do I use it?
 
@@ -69,23 +77,27 @@ Examples:
    sherlock -t 0% *.java   # reports all similarity indexes
 </pre>
 
+<!-- TODO: no this is wrong! -->
+
 ## What does the output look like?
 
 Sherlock performs an N<sup>2</sup> comparison between all the files, so every file is compared with every other file.
 
 The output lists the similarity indexes between each pair of files. This index is a percentage, where 0% means no similarity and 100% means there is a very high chance of a lot of similarity. 100% does not mean that the files are exactly the same, since the Sherlock program randomly throws away some data in order to perform a faster match.
 
+<!-- TODO: no this is wrong! -->
+
 The output of the program might look like this:
 
 <pre>   README and index.html: 5%
-   README and makefile: 1%
+   README and Makefile: 1%
    README and sherlock: 0%
    README and sherlock.c: 2%
-   index.html and makefile: 8%
+   index.html and Makefile: 8%
    index.html and sherlock: 0%
    index.html and sherlock.c: 10%
-   makefile and sherlock: 0%
-   makefile and sherlock.c: 6%
+   Makefile and sherlock: 0%
+   Makefile and sherlock.c: 6%
    sherlock and sherlock.c: 0%
 </pre>
 

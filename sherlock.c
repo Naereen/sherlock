@@ -10,6 +10,9 @@
  *  Essentially it hashes up N adjacent 'words' of input,
  *  and semi-randomly throws away many of the hashed values
  *  so that it become hard to hide the plagiarised text.
+ *
+ * See https://github.com/Naereen/sherlock for a recent fork
+ *
  */
 
 #include <stdlib.h>
@@ -232,7 +235,9 @@ int main(int argc, char* argv[])
         for (j = i + 1; j < nfiles; j++) {
             percent = compare(sig[i], sig[j]);
             if (percent >= Thresh)
-                fprintf(Outfile, "%s;%s;%d%%\n", filePath[i], filePath[j], percent);
+                /* fprintf(Outfile, "%s;%s;%d%%\n", filePath[i], filePath[j], percent); */
+                /* print percentage first, so output can be sorted with | sort */
+                fprintf(Outfile, "%.3d%% : %s %s\n", percent, filePath[i], filePath[j]);
         }
 
     for (i = 0; i < nfiles; i++) {
